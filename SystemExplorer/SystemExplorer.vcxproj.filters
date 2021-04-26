@@ -1,0 +1,812 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{b0826daf-8b21-422a-98ed-71fcd55b2896}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{2a0b0471-9074-4617-b634-ac42dbc82319}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{240d3b04-04d7-456f-b696-796f3752eb45}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;manifest</Extensions>
+    </Filter>
+    <Filter Include="ObjectTypes">
+      <UniqueIdentifier>{73e37722-1480-4ed3-8162-59c9214a56c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Icons">
+      <UniqueIdentifier>{1d972aeb-12f3-48cd-b0ce-d451ac851283}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bin">
+      <UniqueIdentifier>{cacf0b0e-f8a1-49f7-b962-81a371de23cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bin\x64">
+      <UniqueIdentifier>{c086b17e-82bb-4424-bca9-601d7e36171e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Views">
+      <UniqueIdentifier>{1ced88e2-896c-4bcd-9ac6-c5025e168c66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dialogs">
+      <UniqueIdentifier>{02a8505c-f3e2-40cd-a87f-e87644ef9aab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Helpers">
+      <UniqueIdentifier>{d44a5596-224c-4f51-925e-17c61aba2631}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Icons\ThreadStates">
+      <UniqueIdentifier>{e2febe33-19ca-43ee-a14b-d114e4ac027a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models">
+      <UniqueIdentifier>{e2f00380-7cb1-4b57-8fb5-941bd3128df7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectType.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MutexObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="SemaphoreObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="SectionObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="EventObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolicLinkObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="JobObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="TokenObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="FileObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="TimerObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="WinStationObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="WorkerFactoryObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="HandlesView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManagerView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectsSummaryView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectsView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowsView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectHandlesDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="AboutDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessSelectDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ServicesView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="ClipboardHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="DriverHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="SortHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="SecurityHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgressDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="DeviceManagerView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectTypeFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="PipesMailslotsDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="DetachHostWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ColumnManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryMapView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="SecurityInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LogonSessionsView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectColumnsDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ModulesView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessesView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessInfoEx.cpp">
+      <Filter>Models</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessColor.cpp">
+      <Filter>Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Settings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FormatHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemExplorer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="COMView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadsView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectSearcher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchBar.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessPropertiesDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="TokenPropertiesDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="EnvironmentDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="JobPropertiesDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorsSelectionDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="IniFile.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="AccessMaskDecoder.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="SysInfoView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadInfoEx.cpp">
+      <Filter>Models</Filter>
+    </ClCompile>
+    <ClCompile Include="DeviceObjectType.cpp">
+      <Filter>ObjectTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="InstallServiceDlg.cpp">
+      <Filter>Dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ListViewHelper.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemModulesView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessTreeView.cpp">
+      <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageIconCache.cpp">
+      <Filter>Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="ServiceInfoEx.cpp">
+      <Filter>Models</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MainFrm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NtDll.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VirtualListView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MutexObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="SemaphoreObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="SectionObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="EventObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolicLinkObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="JobObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="TokenObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="FileObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="TimerObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="WinStationObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WorkerFactoryObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectsView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectsSummaryView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManagerView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="HandlesView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowsView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="AboutDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessSelectDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectHandlesDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ServicesView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="ClipboardHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="DriverHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="SecurityHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="SortHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgressDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="DeviceManagerView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectTypeFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="PipesMailslotsDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="DetachHostWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ColumnManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryMapView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="SecurityInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LogonSessionsView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectColumnsDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ModulesView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessesView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessInfoEx.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessColor.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Settings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StandardColors.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FormatHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="COMView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadsView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="UndocListView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectSearcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchBar.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessPropertiesDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="TokenPropertiesDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="EnvironmentDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="JobPropertiesDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorsSelectionDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="IniFile.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="AccessMaskDecoder.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="NotifyIcon.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="SysInfoView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadInfoEx.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="DeviceObjectType.h">
+      <Filter>ObjectTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomDrawListView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResizablePropertySheet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InstallServiceDlg.h">
+      <Filter>Dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ListViewHelper.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemModulesView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessTreeView.h">
+      <Filter>Views</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageIconCache.h">
+      <Filter>Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceInfoEx.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\briefcase.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\desktop.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\device.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\directory.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\event.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\file.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\generic.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\key.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\mutex.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\ObjectExplorer.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\port.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\process.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\section.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\semaphore.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\symboliclink.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\thread.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\timer.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\token.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\Waiting.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\windowstation.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\objects.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\types.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\copy.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\handles.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\refresh.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\delete.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\process_view.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\package.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\pause.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\pin_green.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\folder.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\folder_closed.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\atom.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\battery.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\car_compact_green.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\dram.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\funnel.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\funnel_up.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\window.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\windows.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\window_black.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\sign_forbidden.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\window_title.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\factory.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\paint_brush2.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\find.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\find_next.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\window_close.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\gears.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\gear.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\gear_delete.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\gear_pause.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\gear_run.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\gear_stop.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\play.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\stop.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\media_step_forward.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\ok.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\mailbox.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\pipe.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\window_new.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\commit.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\reserved.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\free.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\font.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\shield_blue.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\login.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\table_column_delete.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\table_column-edit.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\dll.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\dll-database.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\dll-import.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\heap.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\processes.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\component_blue.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\Initialized.ico">
+      <Filter>Resource Files\Icons\ThreadStates</Filter>
+    </Image>
+    <Image Include="res\Ready.ico">
+      <Filter>Resource Files\Icons\ThreadStates</Filter>
+    </Image>
+    <Image Include="res\Running.ico">
+      <Filter>Resource Files\Icons\ThreadStates</Filter>
+    </Image>
+    <Image Include="res\Standby.ico">
+      <Filter>Resource Files\Icons\ThreadStates</Filter>
+    </Image>
+    <Image Include="res\transition.ico">
+      <Filter>Resource Files\Icons\ThreadStates</Filter>
+    </Image>
+    <Image Include="res\application-friend.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\class.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\interface.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\library.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\application-server.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\dll-server.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\variables-info.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\Run.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\folder_open-find.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\color_wheel.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\properties.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\sysinfo.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\tree.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+    <Image Include="res\car.ico">
+      <Filter>Resource Files\Icons</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Bin\x64\KObjExp.sys">
+      <Filter>Bin\x64</Filter>
+    </None>
+    <None Include="..\x64\Release\KObjExp.sys" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="manifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SystemExplorer.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

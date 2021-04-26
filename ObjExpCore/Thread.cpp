@@ -1,13 +1,21 @@
-#include "stdafx.h"
+#include "pch.h"
 #include "Thread.h"
-#include "Handles.h"
 #include "SystemInformation.h"
 #include "Processes.h"
 #include "subprocesstag.h"
 
 using namespace WinSys;
 
-Thread::Thread(HANDLE handle, ThreadAccessMask access) : _handle(handle), _access(access) {}
+Thread::Thread(HANDLE handle, bool own) : _handle(handle), _own(own) {}
+
+WinSys::Thread::Thread(uint32_t tid, ThreadAccessMask accessMask) : _own(true) {
+	_handle = ::OpenThread(static_cast<ACCESS_MASK>(accessMask), FALSE, tid);
+}
+
+WinSys::Thread::~Thread() {
+	if (_own && _handle)
+		::CloseHandle(_handle);
+}
 
 int Thread::GetMemoryPriority() const {
 	int priority = -1;
@@ -51,7 +59,7 @@ size_t WinSys::Thread::GetSubProcessTag() const {
 }
 
 std::wstring Thread::GetServiceNameByTag(uint32_t pid) {
-	auto QueryTagInformation = (PQUERY_TAG_INFORMATION)::GetProcAddress(::GetModuleHandle(L"advapi32"), "I_QueryTagInformation");
+	static auto QueryTagInformation = (PQUERY_TAG_INFORMATION)::GetProcAddress(::GetModuleHandle(L"advapi32"), "I_QueryTagInformation");
 	if (QueryTagInformation == nullptr)
 		return L"";
 	auto tag = GetSubProcessTag();
@@ -64,6 +72,47 @@ std::wstring Thread::GetServiceNameByTag(uint32_t pid) {
 	if (err)
 		return L"";
 	return info.OutParams.pszName;
+}
+
+ComFlags WinSys::Thread::GetComFlags() const {
+	THREAD_BASIC_INFORMATION tbi;
+	auto status = ::NtQueryInformationThread(_handle, ThreadBasicInformation, &tbi, sizeof(tbi), nullptr);
+	if (!NT_SUCCESS(status))
+		return ComFlags::Error;
+
+	if (tbi.TebBaseAddress == 0)
+		return ComFlags::Error;
+
+	bool is64bit = SystemInformation::GetBasicSystemInfo().MaximumAppAddress > (void*)(1LL << 32);
+	auto pid = ::GetProcessIdOfThread(_handle);
+	auto process = Process::OpenById(pid, ProcessAccessMask::QueryLimitedInformation | ProcessAccessMask::VmRead);
+	if (!process)
+		return ComFlags::Error;
+
+	void* ole = nullptr;
+	bool wow = false;
+	auto teb = tbi.TebBaseAddress;
+	if (!is64bit || process->IsWow64Process()) {
+		wow = true;
+		auto offset = offsetof(TEB32, ReservedForOle);
+		::ReadProcessMemory(process->GetHandle(), (BYTE*)teb + offset, &ole, sizeof(ULONG), nullptr);
+	}
+	else {
+		::ReadProcessMemory(process->GetHandle(), (BYTE*)teb + offsetof(TEB, ReservedForOle), &ole, sizeof(ole), nullptr);
+	}
+	if(ole == nullptr)
+		return ComFlags::None;
+
+	BYTE buffer[32];
+	if(!::ReadProcessMemory(process->GetHandle(), ole, buffer, sizeof(buffer), nullptr))
+		return ComFlags::Error;
+
+	auto flags = wow ? (buffer + 12) : (buffer + 20);
+	return ComFlags(*(DWORD*)flags);
+}
+
+bool WinSys::Thread::IsValid() const {
+	return _handle != nullptr;
 }
 
 CpuNumber Thread::GetIdealProcessor() const {
@@ -87,7 +136,5 @@ std::unique_ptr<Thread> Thread::OpenById(uint32_t tid, ThreadAccessMask accessMa
 	if (!hThread)
 		return nullptr;
 
-	return std::make_unique<Thread>(hThread, accessMask);
+	return std::make_unique<Thread>(hThread, true);
 }
-
-

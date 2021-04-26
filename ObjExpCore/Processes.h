@@ -31,18 +31,19 @@ namespace WinSys {
 		AboveNormal = ABOVE_NORMAL_PRIORITY_CLASS,
 		Idle = IDLE_PRIORITY_CLASS,
 		High = HIGH_PRIORITY_CLASS,
-		Realtime = REALTIME_PRIORITY_CLASS
+		Realtime = REALTIME_PRIORITY_CLASS,
+		Unknown = 0,
 	};
 
 	enum class IntegrityLevel : uint32_t {
 		Untrusted = 0,
-		Unknown = 0xffffffff,
 		Low = SECURITY_MANDATORY_LOW_RID,
 		Medium = SECURITY_MANDATORY_MEDIUM_RID,
 		MediumPlus = SECURITY_MANDATORY_MEDIUM_PLUS_RID,
 		High = SECURITY_MANDATORY_HIGH_RID,
 		System = SECURITY_MANDATORY_SYSTEM_RID,
-		Protected = SECURITY_MANDATORY_PROTECTED_PROCESS_RID
+		Protected = SECURITY_MANDATORY_PROTECTED_PROCESS_RID,
+		Error = 0xffffffff,
 	};
 
 	enum class ProtectedProcessSigner : uint8_t;
@@ -86,15 +87,10 @@ namespace WinSys {
 	public:
 		static std::unique_ptr<Process> OpenById(uint32_t pid, ProcessAccessMask access = ProcessAccessMask::QueryLimitedInformation);
 		static std::unique_ptr<Process> GetCurrent();
-
-		// do not use directly
-		Process(HANDLE handle, ProcessAccessMask accessMask);
-		Process(const Process&) = delete;
-		Process& operator=(const Process&) = delete;
-		Process(Process&& other) noexcept;
-		Process& operator=(Process&& other) noexcept;
-
+		Process(HANDLE handle);
 		~Process();
+
+		bool IsValid() const;
 
 		std::wstring GetFullImageName() const;
 		std::wstring GetCommandLine() const;
@@ -116,6 +112,19 @@ namespace WinSys {
 		IntegrityLevel GetIntegrityLevel() const;
 		int GetMemoryPriority() const;
 		IoPriority GetIoPriority() const;
+		ProcessPriorityClass GetPriorityClass() const;
+		std::wstring GetCurrentDirectory() const;
+		static std::wstring GetCurrentDirectory(HANDLE hProcess);
+		static std::vector<std::pair<std::wstring, std::wstring>> GetEnvironment(HANDLE hProcess);
+		std::vector<std::pair<std::wstring, std::wstring>> GetEnvironment() const;
+
+		bool SetPriorityClass(ProcessPriorityClass pc);
+		uint32_t GetGdiObjectCount() const;
+		uint32_t GetPeakGdiObjectCount() const;
+		uint32_t GetUserObjectCount() const;
+		uint32_t GetPeakUserObjectCount() const;
+		HANDLE GetNextThread(HANDLE hThread = nullptr, ThreadAccessMask access = ThreadAccessMask::QueryLimitedInformation);
+		
 		uint32_t GetId() const;
 
 		HANDLE GetHandle() const;
@@ -124,9 +133,7 @@ namespace WinSys {
 		std::vector<std::shared_ptr<ProcessHandleInfo>> EnumHandles();
 
 	private:
-
-		struct Impl;
-		std::unique_ptr<Impl> _impl;
+		wil::unique_handle _handle;
 	};
 
 }

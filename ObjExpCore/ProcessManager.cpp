@@ -38,9 +38,9 @@ struct ProcessManager::Impl {
 		}
 	}
 
-	size_t EnumProcesses(bool includeThreads, uint32_t pid, size_t extraProcessBytes, size_t extraThreadBytes);
+	size_t EnumProcesses(bool includeThreads, uint32_t pid);
 	std::shared_ptr<ProcessInfo> BuildProcessInfo(const SYSTEM_PROCESS_INFORMATION* info, bool includeThreads, ThreadMap
-		& threadsByKey, int64_t delta, std::shared_ptr<ProcessInfo> pi,	size_t extraBytesProcess, size_t extraBytesThread, bool extended);
+		& threadsByKey, int64_t delta, std::shared_ptr<ProcessInfo> pi, bool extended);
 	std::vector<std::shared_ptr<ProcessInfo>>& GetProcesses() {
 		return _processes;
 	}
@@ -90,6 +90,41 @@ struct ProcessManager::Impl {
 		return _threads.size();
 	}
 
+	std::vector<std::pair<std::shared_ptr<ProcessInfo>, int>> BuildProcessTree() {
+		std::vector<std::pair<std::shared_ptr<ProcessInfo>, int>> tree;
+		auto count = EnumProcesses(false, 0);
+		tree.reserve(count);
+
+		auto map = _processesById;
+		for (auto& p : _processes) {
+			auto it = _processesById.find(p->ParentId);
+			if (p->ParentId == 0 || it == _processesById.end() || (it != _processesById.end() && it->second->CreateTime > p->CreateTime)) {
+				// root
+				DbgPrint((PSTR)"Root: %ws (%u) (Parent: %u)\n", p->GetImageName().c_str(), p->Id, p->ParentId);
+				tree.push_back(std::make_pair(p, 0));
+				map.erase(p->Id);
+				if (p->Id == 0)
+					continue;
+				auto children = FindChildren(map, p.get(), 1);
+				for (auto& child : children)
+					tree.push_back(std::make_pair(_processesById[child.first], child.second));
+			}
+		}
+		return tree;
+	}
+
+	std::vector<std::pair<uint32_t, int>> FindChildren(decltype(_processesById)& map, ProcessInfo* parent, int indent) {
+		std::vector<std::pair<uint32_t, int>> children;
+		for (auto& p : _processes) {
+			if (p->ParentId == parent->Id && p->CreateTime > parent->CreateTime) {
+				children.push_back(std::make_pair(p->Id, indent));
+				map.erase(p->Id);
+				auto children2 = FindChildren(map, p.get(), indent + 1);
+				children.insert(children.end(), children2.begin(), children2.end());
+			}
+		}
+		return children;
+	}
 };
 
 uint32_t ProcessManager::Impl::_totalProcessors;
@@ -107,7 +142,7 @@ std::shared_ptr<ProcessInfo> ProcessManager::GetProcessById(uint32_t pid) const 
 	return _impl->GetProcessById(pid);
 }
 
-std::shared_ptr<ProcessInfo> ProcessManager::GetProcessByKey(const ProcessOrThreadKey& key) const {
+std::shared_ptr<ProcessInfo> ProcessManager::GetProcessByKey(const ProcessOrThreadKey & key) const {
 	return _impl->GetProcessByKey(key);
 }
 
@@ -134,14 +169,14 @@ const std::vector<std::shared_ptr<ThreadInfo>>& ProcessManager::GetThreads() con
 }
 
 size_t ProcessManager::EnumProcesses() {
-	return _impl->EnumProcesses(false, 0, 0, 0);
+	return _impl->EnumProcesses(false, 0);
 }
 
 std::shared_ptr<ThreadInfo> ProcessManager::GetThreadInfo(int index) const {
 	return _impl->GetThreadInfo(index);
 }
 
-std::shared_ptr<ThreadInfo> ProcessManager::GetThreadByKey(const ProcessOrThreadKey& key) const {
+std::shared_ptr<ThreadInfo> ProcessManager::GetThreadByKey(const ProcessOrThreadKey & key) const {
 	return _impl->GetThreadByKey(key);
 }
 
@@ -162,19 +197,25 @@ size_t WinSys::ProcessManager::GetProcessCount() const {
 }
 
 std::wstring ProcessManager::GetProcessNameById(uint32_t pid) const {
+	if (pid == 0)
+		return L"";
 	auto pi = GetProcessById(pid);
 	return pi ? pi->GetImageName() : L"";
 }
 
-size_t ProcessManager::EnumProcessesAndThreads(uint32_t pid, size_t extraBytesProcess, size_t extraBytesThread) {
-	return _impl->EnumProcesses(true, pid, extraBytesProcess, extraBytesThread);
+std::vector<std::pair<std::shared_ptr<ProcessInfo>, int>> ProcessManager::BuildProcessTree() {
+	return _impl->BuildProcessTree();
 }
 
-size_t ProcessManager::Impl::EnumProcesses(bool includeThreads, uint32_t pid, size_t extraBytesProcess, size_t extraBytesThread) {
+size_t ProcessManager::EnumProcessesAndThreads(uint32_t pid) {
+	return _impl->EnumProcesses(true, pid);
+}
+
+size_t ProcessManager::Impl::EnumProcesses(bool includeThreads, uint32_t pid) {
 	std::vector<std::shared_ptr<ProcessInfo>> processes;
-	processes.reserve(_processes.empty() ? 256 : _processes.size() + 10);
+	processes.reserve(_processes.empty() ? 512 : _processes.size() + 10);
 	ProcessMap processesByKey;
-	processesByKey.reserve(_processes.size() == 0 ? 256 : _processes.size() + 10);
+	processesByKey.reserve(_processes.size() == 0 ? 512 : _processes.size() + 10);
 	_processesById.clear();
 	_processesById.reserve(_processes.capacity());
 
@@ -182,16 +223,19 @@ size_t ProcessManager::Impl::EnumProcesses(bool includeThreads, uint32_t pid, si
 
 	ThreadMap threadsByKey;
 	if (includeThreads) {
-		threadsByKey.reserve(1024);
+		threadsByKey.reserve(4096);
 		_newThreads.clear();
 		if (_threads.empty())
-			_newThreads.reserve(1024);
+			_newThreads.reserve(4096);
 		_threads.clear();
 		_threadsById.clear();
 	}
 
 	int size = 1 << 22;
-	auto buffer = std::make_unique<BYTE[]>(size);
+	wil::unique_virtualalloc_ptr<BYTE> buffer((BYTE*)::VirtualAlloc(nullptr, size, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE));
+	if (!buffer)
+		return 0;
+
 	ULONG len;
 
 	// get timing info as close as possible to the API call
@@ -219,14 +263,14 @@ size_t ProcessManager::Impl::EnumProcesses(bool includeThreads, uint32_t pid, si
 				std::shared_ptr<ProcessInfo> pi;
 				if (auto it = _processesByKey.find(key); it == _processesByKey.end()) {
 					// new process
-					pi = BuildProcessInfo(p, includeThreads, threadsByKey, delta, pi, extraBytesProcess, extraBytesThread, extended);
+					pi = BuildProcessInfo(p, includeThreads, threadsByKey, delta, pi, extended);
 					_newProcesses.push_back(pi);
 					pi->CPU = 0;
 				}
 				else {
-					auto& pi2 = it->second;
+					const auto& pi2 = it->second;
 					auto cpu = delta == 0 ? 0 : (int32_t)((p->KernelTime.QuadPart + p->UserTime.QuadPart - pi2->UserTime - pi2->KernelTime) * 1000000 / delta / _totalProcessors);
-					pi = BuildProcessInfo(p, includeThreads, threadsByKey, delta, pi2, extraBytesProcess, extraBytesThread, extended);
+					pi = BuildProcessInfo(p, includeThreads, threadsByKey, delta, pi2, extended);
 					pi->CPU = cpu;
 
 					// remove from known processes
@@ -236,8 +280,8 @@ size_t ProcessManager::Impl::EnumProcesses(bool includeThreads, uint32_t pid, si
 				//
 				// add process to maps
 				//
-				processesByKey.insert(std::make_pair(key, pi));
-				_processesById.insert(std::make_pair(pi->Id, pi));
+				processesByKey.insert({ key, pi });
+				_processesById.insert({ pi->Id, pi });
 			}
 			if (p->NextEntryOffset == 0)
 				break;
@@ -251,7 +295,7 @@ size_t ProcessManager::Impl::EnumProcesses(bool includeThreads, uint32_t pid, si
 	//
 	_terminatedProcesses.clear();
 	_terminatedProcesses.reserve(_processesByKey.size());
-	for (const auto&[key, pi] : _processesByKey)
+	for (const auto& [key, pi] : _processesByKey)
 		_terminatedProcesses.push_back(pi);
 
 	_processesByKey = std::move(processesByKey);
@@ -259,7 +303,7 @@ size_t ProcessManager::Impl::EnumProcesses(bool includeThreads, uint32_t pid, si
 	if (includeThreads) {
 		_terminatedThreads.clear();
 		_terminatedThreads.reserve(_threadsByKey.size());
-		for (const auto&[key, ti] : _threadsByKey)
+		for (const auto& [key, ti] : _threadsByKey)
 			_terminatedThreads.push_back(ti);
 
 		_threadsByKey = std::move(threadsByKey);
@@ -280,17 +324,9 @@ size_t ProcessManager::Impl::EnumProcesses(bool includeThreads, uint32_t pid, si
 #endif
 
 std::shared_ptr<ProcessInfo> ProcessManager::Impl::BuildProcessInfo(
-	const SYSTEM_PROCESS_INFORMATION* info, bool includeThreads, ThreadMap& threadsByKey, int64_t delta, std::shared_ptr<ProcessInfo> pi,
-	size_t extraBytesProcess, size_t extraBytesThread, bool extended) {
+	const SYSTEM_PROCESS_INFORMATION * info, bool includeThreads, ThreadMap & threadsByKey, int64_t delta, std::shared_ptr<ProcessInfo> pi, bool extended) {
 	if (pi == nullptr) {
-		if (extraBytesProcess > 0) {
-			auto size = sizeof(ProcessInfo) + extraBytesProcess;
-			auto buffer = new char[size];
-			pi.reset(new (buffer) ProcessInfo);
-		}
-		else {
-			pi = std::make_shared<ProcessInfo>();
-		}
+		pi = std::make_shared<ProcessInfo>();
 		pi->Id = HandleToULong(info->UniqueProcessId);
 		pi->SessionId = info->SessionId;
 		pi->CreateTime = info->CreateTime.QuadPart;
@@ -300,12 +336,11 @@ std::shared_ptr<ProcessInfo> ProcessManager::Impl::BuildProcessInfo(
 		pi->ClearThreads();
 		auto name = info->UniqueProcessId == 0 ? L"(Idle)" : std::wstring(info->ImageName.Buffer, info->ImageName.Length / sizeof(WCHAR));
 		if (extended && info->UniqueProcessId > 0) {
-			auto ext = (SYSTEM_PROCESS_INFORMATION_EXTENSION*)((BYTE*)info + 
+			auto ext = (SYSTEM_PROCESS_INFORMATION_EXTENSION*)((BYTE*)info +
 				FIELD_OFFSET(SYSTEM_PROCESS_INFORMATION, Threads) + sizeof(SYSTEM_EXTENDED_THREAD_INFORMATION) * info->NumberOfThreads);
 			pi->JobObjectId = ext->JobObjectId;
 			auto index = name.rfind(L'\\');
-			pi->UserSid = std::make_unique<BYTE[]>(SECURITY_MAX_SID_SIZE);
-			::memcpy(pi->UserSid.get(), (BYTE*)info + ext->UserSidOffset, sizeof(pi->UserSid));
+			::memcpy(pi->UserSid, (BYTE*)info + ext->UserSidOffset, sizeof(pi->UserSid));
 			pi->_processName = index == std::wstring::npos ? name : name.substr(index + 1);
 			pi->_nativeImagePath = name;
 			if (ext->PackageFullNameOffset > 0) {
@@ -349,7 +384,7 @@ std::shared_ptr<ProcessInfo> ProcessManager::Impl::BuildProcessInfo(
 		auto threadCount = info->NumberOfThreads;
 		for (ULONG i = 0; i < threadCount; i++) {
 			auto tinfo = (SYSTEM_EXTENDED_THREAD_INFORMATION*)info->Threads + i;
-			auto& baseInfo = tinfo->ThreadInfo;
+			const auto& baseInfo = tinfo->ThreadInfo;
 			ProcessOrThreadKey key = { baseInfo.CreateTime.QuadPart, HandleToULong(baseInfo.ClientId.UniqueThread) };
 			std::shared_ptr<ThreadInfo> thread;
 			std::shared_ptr<ThreadInfo> ti2;
@@ -361,12 +396,7 @@ std::shared_ptr<ProcessInfo> ProcessManager::Impl::BuildProcessInfo(
 				newobject = false;
 			}
 			if (newobject) {
-				if(extraBytesThread == 0)
-					thread = std::make_shared<ThreadInfo>();
-				else {
-					auto buffer = new char[sizeof(ThreadInfo) + extraBytesThread];
-					thread.reset(new (buffer) ThreadInfo);
-				}
+				thread = std::make_shared<ThreadInfo>();
 				thread->_processName = pi->GetImageName();
 				thread->Id = HandleToULong(baseInfo.ClientId.UniqueThread);
 				thread->ProcessId = HandleToULong(baseInfo.ClientId.UniqueProcess);
@@ -385,6 +415,7 @@ std::shared_ptr<ProcessInfo> ProcessManager::Impl::BuildProcessInfo(
 			thread->ThreadState = (ThreadState)baseInfo.ThreadState;
 			thread->WaitReason = (WaitReason)baseInfo.WaitReason;
 			thread->WaitTime = baseInfo.WaitTime;
+			thread->ContextSwitches = baseInfo.ContextSwitches;
 
 			pi->AddThread(thread);
 
@@ -395,7 +426,7 @@ std::shared_ptr<ProcessInfo> ProcessManager::Impl::BuildProcessInfo(
 				_newThreads.push_back(thread);
 			}
 			else {
-				thread->CPU = delta == 0 ? 0 : (int32_t)((thread->KernelTime + thread->UserTime - cpuTime) * 1000000LL / delta / _totalProcessors);
+				thread->CPU = delta == 0 ? 0 : (int32_t)((thread->KernelTime + thread->UserTime - cpuTime) * 1000000LL / delta / 1/*_totalProcessors*/);
 				_threadsByKey.erase(thread->Key);
 			}
 			threadsByKey.insert(std::make_pair(thread->Key, thread));
@@ -409,7 +440,7 @@ std::shared_ptr<ProcessInfo> ProcessManager::Impl::GetProcessInfo(int index) con
 	return _processes[index];
 }
 
-std::shared_ptr<ProcessInfo> ProcessManager::Impl::GetProcessByKey(const ProcessOrThreadKey& key) const {
+std::shared_ptr<ProcessInfo> ProcessManager::Impl::GetProcessByKey(const ProcessOrThreadKey & key) const {
 	auto it = _processesByKey.find(key);
 	return it == _processesByKey.end() ? nullptr : it->second;
 }

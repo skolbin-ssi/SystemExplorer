@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "ServiceInfo.h"
+#include "Sid.h"
 #include <memory>
 #include <string>
 
@@ -53,21 +54,38 @@ namespace WinSys {
 		bool TriggerStart;
 	};
 
+	struct ServiceInstallParams {
+		std::wstring ServiceName;
+		std::wstring DisplayName;
+		std::wstring AccountName;
+		std::wstring Password;
+		std::wstring ImagePath;
+		std::wstring TargetPath;
+		std::wstring Dependencies;
+		std::wstring LoadOrderGroup;
+		WinSys::ServiceStartType StartupType;
+		WinSys::ServiceType ServiceType;
+		WinSys::ServiceErrorControl ErrorControl;
+		bool DelayedAutoStart;
+	};
+
 	class ServiceManager final abstract {
 		friend class Service;
 	public:
-		static std::vector<ServiceInfo> EnumServices(ServiceEnumType enumType = ServiceEnumType::All);
+		static std::vector<ServiceInfo> EnumServices(ServiceEnumType enumType, ServiceEnumState enumState = ServiceEnumState::All);
 		static std::unique_ptr<ServiceConfiguration> GetServiceConfiguration(const std::wstring& serviceName);
 		static std::wstring GetServiceDescription(const std::wstring& name);
 		static ServiceState GetServiceState(const std::wstring& name);
 		static ServiceStatusProcess GetServiceStatus(const std::wstring& name);
-		static std::unique_ptr<Service> Install(const std::wstring& name, const std::wstring& displayName, ServiceAccessMask desiredAccess, ServiceType type, 
-			ServiceStartType startType, ServiceErrorControl errorControl, const std::wstring& imagePath);
-
-		static std::unique_ptr<Service> Install(const std::wstring& name, ServiceType type,	ServiceStartType startType, const std::wstring& imagePath);
 		static bool Uninstall(const std::wstring& name);
 
+		static std::unique_ptr<Service> Install(const std::wstring& name, const std::wstring& displayName, ServiceAccessMask desiredAccess, ServiceType type,
+			ServiceStartType startType, ServiceErrorControl errorControl, const std::wstring& imagePath);
+		static std::unique_ptr<Service> Install(const std::wstring& name, ServiceType type,	ServiceStartType startType, const std::wstring& imagePath);
+		static std::unique_ptr<Service> Install(const ServiceInstallParams& params);
+		static Sid GetServiceSid(const wchar_t* name);
+
 	private:
-		static wil::unique_schandle OpenServiceHandle(const std::wstring& name, ServiceAccessMask accessMask = ServiceAccessMask::QueryConfig);
+		static wil::unique_schandle OpenServiceHandle(const std::wstring& name, ServiceAccessMask accessMask = ServiceAccessMask::QueryConfig | ServiceAccessMask::QueryStatus);
 	};
 }

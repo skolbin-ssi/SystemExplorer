@@ -5,18 +5,33 @@
 
 namespace WinSys {
 	enum class ServiceEnumType {
+		AllDrivers = SERVICE_DRIVER,
+		KernelDrivers = SERVICE_KERNEL_DRIVER,
+		FileSystemDrivers = SERVICE_FILE_SYSTEM_DRIVER,
+		AllServices = SERVICE_WIN32,
+		ServicesOwnProcess = SERVICE_WIN32_OWN_PROCESS,
+		ServicesSharedProcess = SERVICE_WIN32_OWN_PROCESS,
+	};
+	DEFINE_ENUM_FLAG_OPERATORS(ServiceEnumType);
+
+	enum class ServiceEnumState {
 		Active = SERVICE_ACTIVE,
 		Inactive = SERVICE_INACTIVE,
 		All = Active | Inactive
 	};
+	DEFINE_ENUM_FLAG_OPERATORS(ServiceEnumState);
 
 	enum class ServiceType {
 		FileSystemDriver = SERVICE_FILE_SYSTEM_DRIVER,
 		KernelDriver = SERVICE_KERNEL_DRIVER,
 		Win32OwnProcess = SERVICE_WIN32_OWN_PROCESS,
 		Win32SharedProcess = SERVICE_WIN32_SHARE_PROCESS,
-		InteractiveProcess = SERVICE_INTERACTIVE_PROCESS
+		InteractiveProcess = SERVICE_INTERACTIVE_PROCESS,
+		UserService = SERVICE_USER_SERVICE,
+		UserServiceInstance = SERVICE_USERSERVICE_INSTANCE,
+		PackageService = SERVICE_PKG_SERVICE,
 	};
+	DEFINE_ENUM_FLAG_OPERATORS(ServiceType);
 
 	enum class ServiceState {
 		Unknown = 0,
@@ -30,6 +45,7 @@ namespace WinSys {
 	};
 
 	enum class ServiceControlsAccepted {
+		None = 0,
 		NetBindChange = SERVICE_ACCEPT_NETBINDCHANGE,
 		ParamChange = SERVICE_ACCEPT_PARAMCHANGE,
 		PauseContinue = SERVICE_ACCEPT_PAUSE_CONTINUE,
@@ -38,7 +54,13 @@ namespace WinSys {
 		Stop = SERVICE_ACCEPT_STOP,
 		HardwareProfileChange = SERVICE_ACCEPT_HARDWAREPROFILECHANGE,
 		PowerEvent = SERVICE_ACCEPT_POWEREVENT,
-		SessionChange = SERVICE_ACCEPT_SESSIONCHANGE
+		SessionChange = SERVICE_ACCEPT_SESSIONCHANGE,
+		TimeChanged = SERVICE_ACCEPT_TIMECHANGE,
+		TriggerEvent = SERVICE_ACCEPT_TRIGGEREVENT,
+		UserLogOff = SERVICE_ACCEPT_USER_LOGOFF,
+		LowResources = SERVICE_ACCEPT_LOWRESOURCES,
+		SystemLowResources = SERVICE_ACCEPT_SYSTEMLOWRESOURCES,
+		InternalReserved = 0x1000,
 	};
 	DEFINE_ENUM_FLAG_OPERATORS(ServiceControlsAccepted);
 

@@ -39,7 +39,7 @@ std::vector<ServiceTrigger> Service::GetTriggers() const {
 	auto info = reinterpret_cast<SERVICE_TRIGGER_INFO*>(buffer.get());
 	triggers.reserve(info->cTriggers);
 	for (DWORD i = 0; i < info->cTriggers; i++) {
-		auto& tinfo = info->pTriggers[i];
+		const auto& tinfo = info->pTriggers[i];
 		ServiceTrigger trigger;
 		trigger.Type = static_cast<ServiceTriggerType>(tinfo.dwTriggerType);
 		trigger.TriggerSubtype = tinfo.pTriggerSubtype;
@@ -69,6 +69,14 @@ std::vector<std::wstring> Service::GetRequiredPrivileges() const {
 		p += ::wcslen(p) + 1;
 	}
 	return privileges;
+}
+
+ServiceSidType WinSys::Service::GetSidType() const {
+	ServiceSidType type;
+	DWORD len;
+	if (::QueryServiceConfig2(_handle.get(), SERVICE_CONFIG_SERVICE_SID_INFO, (BYTE*)&type, sizeof(type), &len))
+		return type;
+	return ServiceSidType::Unknown;
 }
 
 std::unique_ptr<WinSys::Service> Service::Open(const std::wstring & name, ServiceAccessMask access) noexcept {

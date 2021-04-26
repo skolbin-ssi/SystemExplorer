@@ -1,0 +1,1261 @@
+// Microsoft Visual C++ generated resource script.
+//
+#pragma code_page(65001)
+
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "atlres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""atlres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Run as Administrator",       ID_FILE_RUNASADMINISTRATOR
+        MENUITEM "&Save...\tCtrl+S",            ID_FILE_SAVE
+        MENUITEM SEPARATOR
+        MENUITEM "&New Window",                 ID_TAB_NEWWINDOW
+        MENUITEM SEPARATOR
+        MENUITEM "&Close",                      ID_APP_EXIT
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_FILE_EXITALL
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM SEPARATOR
+        MENUITEM "&Find...\tCtrl+F",            ID_EDIT_FIND
+        MENUITEM "Find &Next\tF3",              ID_EDIT_FIND_NEXT
+        MENUITEM SEPARATOR
+        MENUITEM "&Security...",                ID_EDIT_SECURITY, INACTIVE
+        MENUITEM SEPARATOR
+        MENUITEM "&Search...",                  ID_SYSTEM_SEARCH
+        MENUITEM SEPARATOR
+        MENUITEM "&Properties...\tAlt+Enter",   ID_EDIT_PROPERTIES
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "&Refresh\tF5",                ID_VIEW_REFRESH
+        MENUITEM SEPARATOR
+        MENUITEM "&Pause",                      ID_VIEW_PAUSE
+        POPUP "&Update Interval"
+        BEGIN
+            MENUITEM "&1 Second",                   ID_UPDATEINTERVAL_1SECOND
+            MENUITEM "&2 Seconds",                  ID_UPDATEINTERVAL_2SECONDS
+            MENUITEM "&5 Seconds",                  ID_UPDATEINTERVAL_5SECONDS
+            MENUITEM "1&0 Seconds",                 ID_UPDATEINTERVAL_10SECONDS
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Columns...",                  ID_HEADER_COLUMNS, INACTIVE
+    END
+    POPUP "&Objects"
+    BEGIN
+        POPUP "Objects of Type"
+        BEGIN
+            MENUITEM "&ALPC Port",                  ID_SHOWOBJECTSOFTYPE_ALPCPORT
+            MENUITEM "&Desktop",                    ID_SHOWOBJECTSOFTYPE_DESKTOP
+            MENUITEM "Directory",                   ID_SHOWOBJECTSOFTYPE_DIRECTORY
+            MENUITEM "Event",                       ID_SHOWOBJECTSOFTYPE_EVENT
+            MENUITEM "&File",                       ID_SHOWOBJECTSOFTYPE_FILE
+            MENUITEM "Job",                         ID_SHOWOBJECTSOFTYPE_JOB
+            MENUITEM "Key",                         ID_SHOWOBJECTSOFTYPE_KEY
+            MENUITEM "Mutant",                      ID_SHOWOBJECTSOFTYPE_MUTEX
+            MENUITEM "Power&Request",               ID_SHOWOBJECTSOFTYPE_POWERREQUEST
+            MENUITEM "&Process",                    ID_SHOWOBJECTSOFTYPE_PROCESS
+            MENUITEM "&Section",                    ID_SHOWOBJECTSOFTYPE_SECTION
+            MENUITEM "Semaphore",                   ID_SHOWOBJECTSOFTYPE_SEMAPHORE
+            MENUITEM "&SymbolicLink",               ID_SHOWOBJECTSOFTYPE_SYMBOLICLINK
+            MENUITEM "&Thread",                     ID_SHOWOBJECTSOFTYPE_THREAD
+            MENUITEM "&Timer",                      ID_SHOWOBJECTSOFTYPE_TIMER
+            MENUITEM "Token",                       ID_SHOWOBJECTSOFTYPE_TOKEN
+            MENUITEM "Tp&WorkerFactory",            ID_SHOWOBJECTSOFTYPE_WORKERFACTORY
+            MENUITEM "&WindowStation",              ID_SHOWOBJECTSOFTYPE_WINDOWSTATION
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&All Objects",                ID_OBJECTS_ALLOBJECTS
+        MENUITEM "&All Handles for Object...",  ID_OBJECTS_ALLHANDLESFOROBJECT, INACTIVE
+        MENUITEM SEPARATOR
+        MENUITEM "Object &Types",               ID_OBJECTS_ALLOBJECTTYPES
+        MENUITEM SEPARATOR
+        MENUITEM "Object &Manager Namespace",   ID_OBJECTS_OBJECTMANAGER
+        MENUITEM SEPARATOR
+        MENUITEM "&Pipes...",                   ID_HANDLES_PIPES
+        MENUITEM "Mai&lslots...",               ID_OBJECTS_MAILSLOTS
+    END
+    POPUP "&Handles"
+    BEGIN
+        MENUITEM "&All Handles",                ID_HANDLES_ALLHANDLES
+        MENUITEM SEPARATOR
+        POPUP "&Handles of Type"
+        BEGIN
+            MENUITEM "&ALPC Port",                  ID_SHOWHANDLESOFTYPE_ALPCPORT
+            MENUITEM "&Desktop",                    ID_SHOWHANDLESOFTYPE_DESKTOP
+            MENUITEM "Directory",                   ID_SHOWHANDLESOFTYPE_DIRECTORY
+            MENUITEM "Event",                       ID_SHOWHANDLESOFTYPE_EVENT
+            MENUITEM "&File",                       ID_SHOWHANDLESOFTYPE_FILE
+            MENUITEM "Job",                         ID_SHOWHANDLESOFTYPE_JOB
+            MENUITEM "Key",                         ID_SHOWHANDLESOFTYPE_KEY
+            MENUITEM "Mutant",                      ID_SHOWHANDLESOFTYPE_MUTEX
+            MENUITEM "Power&Request",               ID_SHOWHANDLESOFTYPE_POWERREQUEST
+            MENUITEM "&Process",                    ID_HANDLES_SHOWHANDLESOFTYPE
+            MENUITEM "&Section",                    ID_SHOWHANDLESOFTYPE_SECTION
+            MENUITEM "Semaphore",                   ID_SHOWHANDLESOFTYPE_SEMAPHORE
+            MENUITEM "&SymbolicLink",               ID_SHOWHANDLESOFTYPE_SYMBOLICLINK
+            MENUITEM "&Thread",                     ID_SHOWHANDLESOFTYPE_THREAD
+            MENUITEM "&Timer",                      ID_SHOWHANDLESOFTYPE_TIMER
+            MENUITEM "Token",                       ID_SHOWHANDLESOFTYPE_TOKEN
+            MENUITEM "Tp&WorkerFactory",            ID_SHOWHANDLESOFTYPE_WORKERFACTORY
+            MENUITEM "&WindowStation",              ID_SHOWHANDLESOFTYPE_WINDOWSTATION
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&Close Handle",               ID_HANDLES_CLOSEHANDLE, INACTIVE
+    END
+    POPUP "&System"
+    BEGIN
+        MENUITEM "&Processes",                  ID_SYSTEM_PROCESSES
+        MENUITEM "Process Tree",                ID_SYSTEM_PROCESSTREE
+        MENUITEM "&Threads",                    ID_SYSTEM_THREADS
+        MENUITEM "&Services",                   ID_SYSTEM_SERVICES
+        MENUITEM "&Devices",                    ID_SYSTEM_DEVICES
+        MENUITEM "&Drivers",                    ID_SYSTEM_DRIVERS
+        MENUITEM "&Kernel Modules",             ID_SYSTEM_KERNELMODULES
+        MENUITEM "&COM",                        ID_SYSTEM_COM
+        MENUITEM "&Logon Sessions",             ID_SYSTEM_LOGONSESSIONS
+        MENUITEM "Information",                 ID_SYSTEM_INFORMATION
+        MENUITEM SEPARATOR
+        MENUITEM "&Install Service/Driver...",  ID_SYSTEM_INSTALLSERVICE
+    END
+    POPUP "&Process"
+    BEGIN
+        MENUITEM "&Threads...",                 ID_PROCESS_THREADS
+        MENUITEM "Mo&dules...",                 ID_PROCESS_MODULES
+        MENUITEM "&Handles...",                 ID_PROCESS_HANDLES
+        MENUITEM "&Memory Map...",              ID_PROCESS_MEMORYMAP
+        MENUITEM "Hea&ps...",                   ID_PROCESS_HEAPS
+        MENUITEM SEPARATOR
+        MENUITEM "&All of the Above...",        ID_PROCESS_ALLOFTHEABOVE
+        MENUITEM SEPARATOR
+        MENUITEM "&Colors...",                  ID_PROCESS_COLORS
+    END
+    POPUP "&GUI"
+    BEGIN
+        MENUITEM "All Windows in Default Desktop", ID_GUI_ALLWINDOWSINDEFAULTDESKTOP
+        MENUITEM "&All Windows",                ID_DESKTOPS_ALLWINDOWS
+        MENUITEM SEPARATOR
+        MENUITEM "&Windows in Process...",      ID_GUI_WINDOWSINPROCESS
+        MENUITEM "&GDI Objects in Process...",  ID_GUI_GDIOBJECTSINPROCESS
+    END
+    POPUP "O&ptions"
+    BEGIN
+        MENUITEM "&Always On Top",              ID_OPTIONS_ALWAYSONTOP
+        MENUITEM "&Replace Task Manager",       ID_OPTIONS_REPLACETASKMANAGER
+        MENUITEM "Run at Logon",                ID_OPTIONS_RUNATLOGON
+        MENUITEM "Minimize to Tray",            ID_OPTIONS_MINIMIZETOTRAY
+        MENUITEM "&Single Instance Only",       ID_OPTIONS_SINGLEINSTANCEONLY
+    END
+    POPUP "&Tab"
+    BEGIN
+        MENUITEM "&Close\tCtrl+F4",             ID_WINDOW_CLOSE
+        MENUITEM "Close &All",                  ID_WINDOW_CLOSE_ALL
+        MENUITEM "Close All but &This",         ID_WINDOW_CLOSEALLBUTTHIS
+        MENUITEM SEPARATOR
+        MENUITEM "&New Window",                 ID_TAB_NEWWINDOW
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About System Explorer...",   ID_APP_ABOUT
+    END
+END
+
+IDR_CONTEXT MENU
+BEGIN
+    POPUP "handle"
+    BEGIN
+        MENUITEM "Copy",                        ID_EDIT_COPY
+        MENUITEM SEPARATOR
+        MENUITEM "&Close Handle",               ID_HANDLES_CLOSEHANDLE
+        MENUITEM SEPARATOR
+        MENUITEM "&Security...",                ID_EDIT_SECURITY
+        MENUITEM SEPARATOR
+        MENUITEM "&Properties...",              ID_EDIT_PROPERTIES
+    END
+    POPUP "tab"
+    BEGIN
+        MENUITEM "&Close\tCtrl+F4",             ID_WINDOW_CLOSE
+        MENUITEM "Close All but &This",         ID_WINDOW_CLOSEALLBUTTHIS
+        MENUITEM SEPARATOR
+        MENUITEM "&Detach",                     ID_TAB_DETACH
+    END
+    POPUP "object"
+    BEGIN
+        MENUITEM "&All Handles...",             ID_OBJECTS_ALLHANDLESFOROBJECT
+        MENUITEM SEPARATOR
+        MENUITEM "&Security...",                ID_EDIT_SECURITY
+        MENUITEM SEPARATOR
+        MENUITEM "&Properties...",              ID_EDIT_PROPERTIES
+    END
+    POPUP "type"
+    BEGIN
+        MENUITEM "All Objects",                 ID_TYPE_ALLOBJECTS
+        MENUITEM "All Handles",                 ID_TYPE_ALLHANDLES
+    END
+    POPUP "handletype"
+    BEGIN
+        MENUITEM "&ALPC Port",                  ID_SHOWHANDLESOFTYPE_ALPCPORT
+        MENUITEM "&Desktop",                    ID_SHOWHANDLESOFTYPE_DESKTOP
+        MENUITEM "Directory",                   ID_SHOWHANDLESOFTYPE_DIRECTORY
+        MENUITEM "Event",                       ID_SHOWHANDLESOFTYPE_EVENT
+        MENUITEM "&File",                       ID_SHOWHANDLESOFTYPE_FILE
+        MENUITEM "Job",                         ID_SHOWHANDLESOFTYPE_JOB
+        MENUITEM "Key",                         ID_SHOWHANDLESOFTYPE_KEY
+        MENUITEM "Mutant",                      ID_SHOWHANDLESOFTYPE_MUTEX
+        MENUITEM "Power&Request",               ID_SHOWHANDLESOFTYPE_POWERREQUEST
+        MENUITEM "&Process",                    ID_SHOWHANDLESOFTYPE_PROCESS
+        MENUITEM "&Section",                    ID_SHOWHANDLESOFTYPE_SECTION
+        MENUITEM "Semaphore",                   ID_SHOWHANDLESOFTYPE_SEMAPHORE
+        MENUITEM "&SymbolicLink",               ID_SHOWHANDLESOFTYPE_SYMBOLICLINK
+        MENUITEM "&Thread",                     ID_SHOWHANDLESOFTYPE_THREAD
+        MENUITEM "&Timer",                      ID_SHOWHANDLESOFTYPE_TIMER
+        MENUITEM "Token",                       ID_SHOWHANDLESOFTYPE_TOKEN
+        MENUITEM "Tp&WorkerFactory",            ID_SHOWHANDLESOFTYPE_WORKERFACTORY
+        MENUITEM "&WindowStation",              ID_SHOWHANDLESOFTYPE_WINDOWSTATION
+    END
+    POPUP "objecttype"
+    BEGIN
+        MENUITEM "&ALPC Port",                  ID_SHOWOBJECTSOFTYPE_ALPCPORT
+        MENUITEM "&Desktop",                    ID_SHOWOBJECTSOFTYPE_DESKTOP
+        MENUITEM "Directory",                   ID_SHOWOBJECTSOFTYPE_DIRECTORY
+        MENUITEM "Event",                       ID_SHOWOBJECTSOFTYPE_EVENT
+        MENUITEM "&File",                       ID_SHOWOBJECTSOFTYPE_FILE
+        MENUITEM "Job",                         ID_SHOWOBJECTSOFTYPE_JOB
+        MENUITEM "Key",                         ID_SHOWOBJECTSOFTYPE_KEY
+        MENUITEM "Mutant",                      ID_SHOWOBJECTSOFTYPE_MUTEX
+        MENUITEM "Power&Request",               ID_SHOWOBJECTSOFTYPE_POWERREQUEST
+        MENUITEM "&Process",                    ID_SHOWOBJECTSOFTYPE_PROCESS
+        MENUITEM "&Section",                    ID_SHOWOBJECTSOFTYPE_SECTION
+        MENUITEM "Semaphore",                   ID_SHOWOBJECTSOFTYPE_SEMAPHORE
+        MENUITEM "&SymbolicLink",               ID_SHOWOBJECTSOFTYPE_SYMBOLICLINK
+        MENUITEM "&Thread",                     ID_SHOWOBJECTSOFTYPE_THREAD
+        MENUITEM "&Timer",                      ID_SHOWOBJECTSOFTYPE_TIMER
+        MENUITEM "Token",                       ID_SHOWOBJECTSOFTYPE_TOKEN
+        MENUITEM "Tp&WorkerFactory",            ID_SHOWOBJECTSOFTYPE_WORKERFACTORY
+        MENUITEM "&WindowStation",              ID_SHOWOBJECTSOFTYPE_WINDOWSTATION
+    END
+    POPUP "service"
+    BEGIN
+        MENUITEM "Start",                       ID_SERVICE_START
+        MENUITEM "Stop",                        ID_SERVICE_STOP
+        MENUITEM "Pause",                       ID_SERVICE_PAUSE
+        MENUITEM "Continue",                    ID_SERVICE_CONTINUE
+        MENUITEM SEPARATOR
+        MENUITEM "Uninstall",                   ID_SERVICE_UNINSTALL
+        MENUITEM SEPARATOR
+        MENUITEM "&Properties...",              ID_EDIT_PROPERTIES
+        MENUITEM SEPARATOR
+        MENUITEM "Process Properties...",       ID_SERVICE_PROCESSPROPERTIES
+        MENUITEM SEPARATOR
+        POPUP "Process &Details"
+        BEGIN
+            MENUITEM "&Threads",                    ID_PROCESS_THREADS
+            MENUITEM "Mo&dules",                    ID_PROCESS_MODULES
+            MENUITEM "&Handles",                    ID_PROCESS_HANDLES
+            MENUITEM "&Memory Map",                 ID_PROCESS_MEMORYMAP
+            MENUITEM "Hea&ps",                      ID_PROCESS_HEAPS
+            MENUITEM SEPARATOR
+            MENUITEM "&All of the Above",           ID_PROCESS_ALLOFTHEABOVE
+        END
+    END
+    POPUP "header"
+    BEGIN
+        MENUITEM "Hide Column",                 ID_HEADER_HIDECOLUMN
+        MENUITEM "Columns...",                  ID_HEADER_COLUMNS
+    END
+    POPUP "process"
+    BEGIN
+        POPUP "&Details"
+        BEGIN
+            MENUITEM "&Threads",                    ID_PROCESS_THREADS
+            MENUITEM "Mo&dules",                    ID_PROCESS_MODULES
+            MENUITEM "&Handles",                    ID_PROCESS_HANDLES
+            MENUITEM "&Memory Map",                 ID_PROCESS_MEMORYMAP
+            MENUITEM "Hea&ps",                      ID_PROCESS_HEAPS
+            MENUITEM SEPARATOR
+            MENUITEM "&All of the Above",           ID_PROCESS_ALLOFTHEABOVE
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&Kill",                       ID_PROCESS_KILL
+        MENUITEM "Kill by &Name",               ID_PROCESS_KILLBYNAME
+        MENUITEM SEPARATOR
+        POPUP "Priority &Class"
+        BEGIN
+            MENUITEM "&Idle",                       ID_PRIORITYCLASS_IDLE
+            MENUITEM "&Below Normal",               ID_PRIORITYCLASS_BELOWNORMAL
+            MENUITEM "&Normal",                     ID_PRIORITYCLASS_NORMAL
+            MENUITEM "&Above Normal",               ID_PRIORITYCLASS_ABOVENORMAL
+            MENUITEM "&High",                       ID_PRIORITYCLASS_HIGH
+            MENUITEM "&Realtime",                   ID_PRIORITYCLASS_REALTIME
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&Open File Location...",      ID_PROCESS_GOTOFILELOCATION
+        MENUITEM SEPARATOR
+        MENUITEM "&Properties...",              ID_EDIT_PROPERTIES
+    END
+    POPUP "dll"
+    BEGIN
+        MENUITEM "Open File Location...",       ID_PROCESS_GOTOFILELOCATION
+    END
+    POPUP "driver"
+    BEGIN
+        MENUITEM "Start",                       ID_SERVICE_START
+        MENUITEM "Stop",                        ID_SERVICE_STOP
+        MENUITEM SEPARATOR
+        MENUITEM "Uninstall",                   ID_SERVICE_UNINSTALL
+    END
+    POPUP "processtree"
+    BEGIN
+        MENUITEM "&Threads",                    ID_PROCESS_THREADS
+        MENUITEM "Mo&dules",                    ID_PROCESS_MODULES
+        MENUITEM "&Handles",                    ID_PROCESS_HANDLES
+        MENUITEM "&Memory Map",                 ID_PROCESS_MEMORYMAP
+        MENUITEM "Hea&ps",                      ID_PROCESS_HEAPS
+        MENUITEM SEPARATOR
+        MENUITEM "&Kill",                       ID_PROCESS_KILL
+        MENUITEM SEPARATOR
+        MENUITEM "&Properties...",              ID_EDIT_PROPERTIES
+    END
+END
+
+IDR_SPLIT MENU
+BEGIN
+    POPUP "color"
+    BEGIN
+        MENUITEM "Background...",               ID_COLOR_BACKGROUND
+        MENUITEM "Foreground...",               ID_COLOR_FOREGROUND
+        MENUITEM SEPARATOR
+        MENUITEM "Default",                     ID_COLOR_DEFAULT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\ObjectExplorer.ico"
+
+IDI_JOB                 ICON                    "res\\briefcase.ico"
+
+IDI_DESKTOP             ICON                    "res\\desktop.ico"
+
+IDI_DEVICE              ICON                    "res\\device.ico"
+
+IDI_DIRECTORY           ICON                    "res\\directory.ico"
+
+IDI_EVENT               ICON                    "res\\event.ico"
+
+IDI_FILE                ICON                    "res\\file.ico"
+
+IDI_GENERIC             ICON                    "res\\generic.ico"
+
+IDI_KEY                 ICON                    "res\\key.ico"
+
+IDI_MUTEX               ICON                    "res\\mutex.ico"
+
+IDI_PORT                ICON                    "res\\port.ico"
+
+IDI_PROCESS             ICON                    "res\\process.ico"
+
+IDI_SECTION             ICON                    "res\\section.ico"
+
+IDI_SEMAPHORE           ICON                    "res\\semaphore.ico"
+
+IDI_SYMLINK             ICON                    "res\\symboliclink.ico"
+
+IDI_THREAD              ICON                    "res\\thread.ico"
+
+IDI_TIMER               ICON                    "res\\timer.ico"
+
+IDI_TOKEN               ICON                    "res\\token.ico"
+
+IDI_PAUSE               ICON                    "res\\Waiting.ico"
+
+IDI_WINSTATION          ICON                    "res\\windowstation.ico"
+
+IDI_OBJECTS             ICON                    "res\\objects.ico"
+
+IDI_TYPES               ICON                    "res\\types.ico"
+
+IDI_COPY                ICON                    "res\\copy.ico"
+
+IDI_REFRESH             ICON                    "res\\refresh.ico"
+
+IDI_HANDLES             ICON                    "res\\handles.ico"
+
+IDI_PROCESS_VIEW        ICON                    "res\\process_view.ico"
+
+IDI_DELETE              ICON                    "res\\delete.ico"
+
+IDI_PACKAGE             ICON                    "res\\package.ico"
+
+IDI_PIN                 ICON                    "res\\pin_green.ico"
+
+IDI_FOLDER              ICON                    "res\\folder.ico"
+
+IDI_FOLDER_CLOSED       ICON                    "res\\folder_closed.ico"
+
+IDI_ATOM                ICON                    "res\\atom.ico"
+
+IDI_BATTERY             ICON                    "res\\battery.ico"
+
+IDI_CAR                 ICON                    "res\\car.ico"
+
+IDI_DRAM                ICON                    "res\\dram.ico"
+
+IDI_FILTER              ICON                    "res\\funnel.ico"
+
+IDI_FILTER_UP           ICON                    "res\\funnel_up.ico"
+
+IDI_WINDOW              ICON                    "res\\window.ico"
+
+IDI_WINDOWS             ICON                    "res\\windows.ico"
+
+IDI_NOACCESS            ICON                    "res\\sign_forbidden.ico"
+
+IDI_WINDOW_BLACK        ICON                    "res\\window_black.ico"
+
+IDI_WINDOW_TITLE        ICON                    "res\\window_title.ico"
+
+IDI_FACTORY             ICON                    "res\\factory.ico"
+
+IDI_FIND                ICON                    "res\\find.ico"
+
+IDI_BRUSH               ICON                    "res\\paint_brush2.ico"
+
+IDI_FIND_NEXT           ICON                    "res\\find_next.ico"
+
+IDI_WINDOW_CLOSE        ICON                    "res\\window_close.ico"
+
+IDI_SERVICE             ICON                    "res\\gear.ico"
+
+IDI_SERVICE_DELETE      ICON                    "res\\gear_delete.ico"
+
+IDI_SERVICE_PAUSE       ICON                    "res\\gear_pause.ico"
+
+IDI_SERVICE_RUNNING     ICON                    "res\\gear_run.ico"
+
+IDI_SERVICE_STOP        ICON                    "res\\gear_stop.ico"
+
+IDI_SERVICES            ICON                    "res\\gears.ico"
+
+IDI_PLAY                ICON                    "res\\play.ico"
+
+IDI_STOP                ICON                    "res\\stop.ico"
+
+IDI_RESUME              ICON                    "res\\media_step_forward.ico"
+
+IDI_OK                  ICON                    "res\\ok.ico"
+
+IDI_MAILBOX             ICON                    "res\\mailbox.ico"
+
+IDI_PIPE                ICON                    "res\\pipe.ico"
+
+IDI_WINDOW_NEW          ICON                    "res\\window_new.ico"
+
+IDI_COMMIT              ICON                    "res\\commit.ico"
+
+IDI_FREE                ICON                    "res\\free.ico"
+
+IDI_RESERVED            ICON                    "res\\reserved.ico"
+
+IDI_FONT                ICON                    "res\\font.ico"
+
+IDI_SHIELD2             ICON                    "res\\shield_blue.ico"
+
+IDI_LOGIN               ICON                    "res\\login.ico"
+
+IDI_HIDECOLUMN          ICON                    "res\\table_column_delete.ico"
+
+IDI_EDITCOLUMNS         ICON                    "res\\table_column-edit.ico"
+
+IDI_DLL                 ICON                    "res\\dll.ico"
+
+IDI_DLL_DB              ICON                    "res\\dll-database.ico"
+
+IDI_DLL_RELOC           ICON                    "res\\dll-import.ico"
+
+IDI_HEAP                ICON                    "res\\heap.ico"
+
+IDI_PROCESSES           ICON                    "res\\processes.ico"
+
+IDI_COMPONENT           ICON                    "res\\component_blue.ico"
+
+IDI_INIT                ICON                    "res\\Initialized.ico"
+
+IDI_READY               ICON                    "res\\Ready.ico"
+
+IDI_RUNNING             ICON                    "res\\Running.ico"
+
+IDI_STANDBY             ICON                    "res\\Standby.ico"
+
+IDI_TRANSITION          ICON                    "res\\transition.ico"
+
+IDI_APPID               ICON                    "res\\application-friend.ico"
+
+IDI_CLASS               ICON                    "res\\class.ico"
+
+IDI_INTERFACE           ICON                    "res\\interface.ico"
+
+IDI_LIBRARY             ICON                    "res\\library.ico"
+
+IDI_APP_SERVER          ICON                    "res\\application-server.ico"
+
+IDI_DLL_SERVER          ICON                    "res\\dll-server.ico"
+
+IDI_RUN                 ICON                    "res\\Run.ico"
+
+IDI_VARS                ICON                    "res\\variables-info.ico"
+
+IDI_FOLDER_FIND         ICON                    "res\\folder_open-find.ico"
+
+IDI_COLORWHEEL          ICON                    "res\\color_wheel.ico"
+
+IDI_SYSINFO             ICON                    "res\\sysinfo.ico"
+
+IDI_PROPERTIES          ICON                    "res\\properties.ico"
+
+IDI_TREE                ICON                    "res\\tree.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 187, 102
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About System Explorer"
+FONT 9, "Segoe UI", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,68,81,50,14
+    CTEXT           "System Explorer v0.91\n\n© 2019-2021 Pavel Yosifovich",IDC_STATIC,43,23,101,32
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,7,20,20
+    CONTROL         "<a>https://github.com/zodiacon/SystemExplorer</a>",IDC_GITHUB,
+                    "SysLink",WS_TABSTOP,25,57,144,14
+END
+
+IDD_PROCSELECT DIALOGEX 0, 0, 309, 302
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Process Selector"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,96,281,50,14,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL,162,281,50,14
+    CONTROL         "",IDC_PROCLIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,7,7,295,263
+    PUSHBUTTON      "",IDC_REFRESH,282,275,26,24,BS_ICON
+END
+
+IDD_HANDLES DIALOGEX 0, 0, 493, 278
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Handles for Object"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_HANDLES,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,7,25,480,246
+    LTEXT           "Total Handles:",IDC_COUNT,7,9,47,8
+    LTEXT           "Name:",IDC_STATIC,120,9,22,8
+    EDITTEXT        IDC_NAME,147,7,303,14,ES_AUTOHSCROLL | ES_READONLY
+END
+
+IDD_PROGRESS DIALOGEX 0, 0, 309, 92
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "System Explorer"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,129,71,50,14
+    CONTROL         "",IDC_PROGRESS,"msctls_progress32",WS_BORDER,24,43,252,14
+    LTEXT           "Static",IDC_MESSAGE,30,18,246,8
+END
+
+IDD_SERVICE_INSTALLER DIALOGEX 0, 0, 309, 152
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Install Service / Driver"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Install",IDOK,96,131,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,162,131,50,14
+    RTEXT           "Name:",IDC_STATIC,29,12,22,8
+    EDITTEXT        IDC_NAME,55,10,89,14,ES_AUTOHSCROLL
+    RTEXT           "Display Name:",IDC_STATIC,5,32,46,8
+    EDITTEXT        IDC_DISPLAYNAME,55,29,167,14,ES_AUTOHSCROLL
+    RTEXT           "Service Type:",IDC_STATIC,6,70,45,8
+    COMBOBOX        IDC_SERVICETYPE,55,67,102,54,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    RTEXT           "Start Type:",IDC_STATIC,13,88,38,8
+    COMBOBOX        IDC_STARTTYPE,55,84,102,54,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Description:",IDC_STATIC,12,50,39,8
+    EDITTEXT        IDC_DESC,55,48,244,14,ES_AUTOHSCROLL
+    LTEXT           "Error Control:",IDC_STATIC,7,104,45,8
+    COMBOBOX        IDC_ERROR_CONTROL,55,102,102,54,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_PIPES_MAILSLOTS DIALOGEX 0, 0, 473, 343
+STYLE DS_SETFONT | WS_POPUP | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Dialog"
+FONT 8, "Segoe UI", 400, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_LIST,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,6,6,462,330
+END
+
+IDD_COLUMNS DIALOGEX 0, 0, 267, 254
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select Columns"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "List",IDC_TYPE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,6,6,27,10
+    CONTROL         "Tree",IDC_TYPE2,"Button",BS_AUTORADIOBUTTON,44,6,31,10
+    CONTROL         "",IDC_COLUMNS,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,12,24,246,192
+    DEFPUSHBUTTON   "OK",IDOK,75,233,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,141,233,50,14
+    CONTROL         "",IDC_TREE,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | TVS_DISABLEDRAGDROP | WS_BORDER | WS_HSCROLL | WS_TABSTOP,12,24,246,192
+END
+
+IDD_SEARCHBAR DIALOGEX 0, 0, 200, 16
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    LTEXT           "Find:",IDC_STATIC,5,3,17,8
+    EDITTEXT        IDC_TEXT,30,0,72,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Search",IDC_SEARCH,110,0,42,14,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDC_CANCEL,156,0,35,14,WS_DISABLED
+END
+
+IDD_PROCESS_PROPERTIES DIALOGEX 0, 0, 399, 230
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_POPUP | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Properties"
+FONT 8, "MS Shell Dlg", 400, 0, 0x0
+BEGIN
+    LTEXT           "Executable Path:",IDC_STATIC,6,86,56,8
+    EDITTEXT        IDC_PATH,81,85,273,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Explore",IDC_EXPLORE,366,81,30,20,BS_ICON
+    LTEXT           "PID:",IDC_STATIC,184,10,15,8
+    EDITTEXT        IDC_PID,204,8,48,14,ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER,WS_EX_RIGHT
+    LTEXT           "Command Line:",IDC_STATIC,6,109,65,8
+    EDITTEXT        IDC_COMMANDLINE,81,109,315,38,ES_MULTILINE | ES_READONLY | ES_WANTRETURN | WS_VSCROLL
+    PUSHBUTTON      "Environment",IDC_ENV,6,48,61,14
+    PUSHBUTTON      "&Token",IDC_TOKEN,73,48,53,14
+    PUSHBUTTON      "&Job",IDC_JOB,132,48,53,14
+    ICON            "",IDC_APPICON,6,4,20,20
+    DEFPUSHBUTTON   "OK",IDOK,140,209,51,14
+    PUSHBUTTON      "Cancel",IDCANCEL,207,209,51,14
+    PUSHBUTTON      "Copy",IDC_COPY,42,122,24,19,BS_ICON
+    LTEXT           "Parent:",IDC_STATIC,261,10,25,8
+    LTEXT           "Static",IDC_PARENT,288,8,108,12,SS_CENTERIMAGE,WS_EX_STATICEDGE
+    LTEXT           "User Name:",IDC_STATIC,6,177,38,8
+    EDITTEXT        IDC_USERNAME,48,175,126,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Platform:",IDC_STATIC,324,179,30,8
+    CTEXT           "32-bit",IDC_PLATFORM,360,177,33,12,SS_CENTERIMAGE
+    LTEXT           "Created:",IDC_STATIC,182,178,30,8
+    LTEXT           "Static",IDC_CREATED,217,176,89,12,SS_CENTERIMAGE
+    LTEXT           "Current Directory:",IDC_STATIC,7,155,65,8
+    EDITTEXT        IDC_CURDIR,81,154,273,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Explore",IDC_EXPLORE_DIR,365,150,31,21,BS_ICON | BS_FLAT
+    LTEXT           "Static",IDC_NAME,38,8,124,13,SS_CENTERIMAGE
+    LTEXT           "Static",IDC_DESC,6,30,294,8
+    PUSHBUTTON      ".NET",IDC_DOTNET,191,48,53,14
+    PUSHBUTTON      "Performance",IDC_STATS,250,48,66,14
+END
+
+IDD_TOKEN DIALOGEX 0, 0, 429, 380
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU
+CAPTION "Token Properties"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "User:",IDC_STATIC,5,7,18,8
+    LTEXT           "SID:",IDC_STATIC,8,26,15,8
+    LTEXT           "Session:",IDC_STATIC,273,6,28,8
+    LTEXT           "Integrity:",IDC_STATIC,269,18,32,8
+    LTEXT           "Virtualization:",IDC_STATIC,257,30,44,8
+    EDITTEXT        IDC_USERNAME,30,5,205,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_USERSID,30,24,205,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "",IDC_GROUPS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,6,72,414,108
+    LTEXT           "Static",IDC_SESSION,306,7,29,8,SS_CENTERIMAGE
+    LTEXT           "Static",IDC_INTEGRITY,306,18,33,8,SS_CENTERIMAGE
+    LTEXT           "Static",IDC_VIRT,306,30,42,8,SS_CENTERIMAGE
+    LTEXT           "Logon Session:",IDC_STATIC,252,54,49,8
+    LTEXT           "Static",IDC_LOGONSESSION,306,54,52,8,SS_CENTERIMAGE
+    LTEXT           "Elevated:",IDC_STATIC,269,43,32,8
+    LTEXT           "Static",IDC_ELEVATED,306,43,19,8,SS_CENTERIMAGE
+    LTEXT           "Groups",IDC_GROUP_COUNT,14,60,54,8
+    LTEXT           "Privileges",IDC_PRIV_COUNT,14,188,72,8
+    CONTROL         "",IDC_PRIVILEGES,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_ALIGNLEFT | LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,6,201,360,93
+    PUSHBUTTON      "Enable",IDC_ENABLE,371,202,50,14,WS_DISABLED
+    PUSHBUTTON      "Disable",IDC_DISABLE,371,222,50,14,WS_DISABLED
+    LTEXT           "Capabilities",IDC_CAPS_COUNT,14,299,70,8
+    LISTBOX         IDC_CAPS,6,312,414,60,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_ENVVARS DIALOGEX 0, 0, 369, 272
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Envinment"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_LIST,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,6,24,354,240
+    PUSHBUTTON      "Copy",IDC_COPY,6,6,50,14
+    PUSHBUTTON      "Copy All",IDC_COPYALL,66,6,50,14
+END
+
+IDD_JOB DIALOGEX 0, 0, 435, 302
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Job Properties"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Name:",IDC_STATIC,9,12,22,8
+    EDITTEXT        IDC_NAME,35,10,324,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Processes:",IDC_STATIC,9,55,36,8
+    CONTROL         "",IDC_PROCLIST,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | LVS_OWNERDATA | WS_BORDER | WS_TABSTOP,6,67,198,96
+    GROUPBOX        "Basic Information",IDC_BASIC_INFO,6,175,126,102
+    GROUPBOX        "I/O",IDC_IO,144,175,150,102
+    PUSHBUTTON      "Kill",IDC_TERM,378,10,49,14
+    CONTROL         "",IDC_LIMITS,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | LVS_OWNERDATA | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,210,67,222,96
+    LTEXT           "Limits:",IDC_STATIC,213,55,21,8
+    LTEXT           "Silo:",IDC_SILO,9,34,216,8
+END
+
+IDD_COLORS DIALOGEX 0, 0, 213, 260
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Colors"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,48,239,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,114,239,50,14
+    CONTROL         "New Processes",IDC_ENABLED,"Button",BS_AUTOCHECKBOX | BS_CENTER | BS_VCENTER | WS_TABSTOP,12,37,132,12
+    CONTROL         "Change",IDC_CHANGE,"Button",BS_SPLITBUTTON | WS_TABSTOP,153,37,51,14
+    PUSHBUTTON      "Defaults",IDC_DEFAULTS,12,6,42,14
+    PUSHBUTTON      "Save...",IDC_SAVE,94,6,50,14
+    PUSHBUTTON      "Load...",IDC_LOAD,150,6,50,14
+END
+
+IDD_INSTALLSVC DIALOGEX 0, 0, 345, 212
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Install New Service/Driver"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Name:",IDC_STATIC,27,7,22,8
+    EDITTEXT        IDC_NAME,51,5,81,14,ES_AUTOHSCROLL
+    LTEXT           "Display Name:",IDC_STATIC,3,26,46,8
+    EDITTEXT        IDC_DISPLAYNAME,51,24,159,14,ES_AUTOHSCROLL
+    LTEXT           "Type:",IDC_STATIC,29,47,20,8
+    COMBOBOX        IDC_TYPE,51,45,111,63,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Startup Type:",IDC_STATIC,178,47,46,8
+    COMBOBOX        IDC_STARTUP,230,45,106,63,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Error Control:",IDC_STATIC,4,68,45,8
+    COMBOBOX        IDC_ERROR_CONTROL,51,66,75,63,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Load Order Group:",IDC_STATIC,136,68,61,8
+    EDITTEXT        IDC_GROUP,202,66,81,14,ES_AUTOHSCROLL
+    LTEXT           "Image Path:",IDC_STATIC,6,92,40,8
+    EDITTEXT        IDC_PATH,51,90,234,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE,294,90,26,14
+    LTEXT           "Dependencies:",IDC_STATIC,3,140,48,8
+    EDITTEXT        IDC_DEP,51,138,198,14,ES_AUTOHSCROLL
+    LTEXT           "Service Account:",IDC_STATIC,3,162,55,8
+    COMBOBOX        IDC_ACCOUNT,60,160,106,63,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_PASSWORD,220,159,81,14,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Install",IDOK,114,191,50,14,WS_DISABLED
+    PUSHBUTTON      "Cancel",IDCANCEL,180,191,50,14
+    LTEXT           "Password:",IDC_STATIC,180,162,34,8
+    LTEXT           "Target Path:",IDC_STATIC,6,116,42,8
+    EDITTEXT        IDC_TARGET_PATH,51,114,234,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE2,294,114,26,14
+    CONTROL         "Add Service",IDC_ADDSERVICE,"Button",BS_SPLITBUTTON | WS_TABSTOP,270,138,72,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 95
+    END
+
+    IDD_PROCSELECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 302
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 295
+    END
+
+    IDD_HANDLES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 486
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 271
+    END
+
+    IDD_PROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 302
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 85
+    END
+
+    IDD_SERVICE_INSTALLER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 302
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 145
+    END
+
+    IDD_PIPES_MAILSLOTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 466
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 336
+    END
+
+    IDD_COLUMNS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 260
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 247
+    END
+
+    IDD_SEARCHBAR, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 193
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 9
+    END
+
+    IDD_PROCESS_PROPERTIES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 392
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 223
+    END
+
+    IDD_TOKEN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 422
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 373
+    END
+
+    IDD_ENVVARS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 362
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 265
+    END
+
+    IDD_JOB, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 428
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 295
+    END
+
+    IDD_COLORS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 206
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 253
+    END
+
+    IDD_INSTALLSVC, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 338
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "F",            ID_EDIT_FIND,           VIRTKEY, CONTROL, NOINVERT
+    VK_F3,          ID_EDIT_FIND_NEXT,      VIRTKEY, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_F5,          ID_VIEW_REFRESH,        VIRTKEY, NOINVERT
+    VK_F4,          ID_WINDOW_CLOSE,        VIRTKEY, CONTROL, NOINVERT
+    VK_RETURN,      ID_EDIT_PROPERTIES,     VIRTKEY, ALT, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "Pavel Yosifovich"
+            VALUE "FileDescription", "System Explorer"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "SystemExplorer"
+            VALUE "LegalCopyright", "© 2019-2021 Pavel Yosifovich. All Rights Rserved."
+            VALUE "OriginalFilename", "SysExp.exe"
+            VALUE "ProductName", "System Explorer"
+            VALUE "ProductVersion", "0, 9, 1, 0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_PROGRESS AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_ABOUTBOX AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_SERVICE_INSTALLER AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_PROCSELECT AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_PIPES_MAILSLOTS AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_COLUMNS AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_HANDLES AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_SEARCHBAR AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_PROCESS_PROPERTIES AFX_DIALOG_LAYOUT
+BEGIN
+    0,
+    0, 0, 0, 0,
+    0, 0, 100, 0,
+    100, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 100, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    50, 100, 0, 0,
+    50, 100, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 100, 0,
+    100, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0,
+    0, 0, 0, 0
+END
+
+IDD_TOKEN AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_ENVVARS AFX_DIALOG_LAYOUT
+BEGIN
+    0,
+    0, 0, 100, 100,
+    0, 0, 0, 0,
+    0, 0, 0, 0
+END
+
+IDD_JOB AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_COLORS AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_INSTALLSVC AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// BIN
+//
+
+IDR_DRIVER              BIN                     "..\\x64\\Release\\KObjExp.sys"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDR_MAINFRAME           "System Explorer v0.91"
+    IDS_TITLE               "System Explorer"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+END
+
+STRINGTABLE
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE
+BEGIN
+    ID_WINDOW_NEW           "Open another window for the active document\nNew Window"
+    ID_WINDOW_ARRANGE       "Arrange icons at the bottom of the window\nArrange Icons"
+    ID_WINDOW_CASCADE       "Arrange windows so they overlap\nCascade Windows"
+    ID_WINDOW_TILE_HORZ     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_TILE_VERT     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified object\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+    ID_VIEW_REFRESH         "Refresh\nRefresh"
+END
+
+STRINGTABLE
+BEGIN
+    ATL_IDS_SCSIZE          "Change the window size"
+    ATL_IDS_SCMOVE          "Change the window position"
+    ATL_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    ATL_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    ATL_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    ATL_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    ATL_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE
+BEGIN
+    ATL_IDS_SCRESTORE       "Restore the window to normal size"
+    ATL_IDS_SCTASKLIST      "Activate Task List"
+    ATL_IDS_MDICHILD        "Activate this window"
+END
+
+STRINGTABLE
+BEGIN
+    ATL_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE
+BEGIN
+    ATL_IDS_MRU_FILE        "Open this document"
+END
+
+STRINGTABLE
+BEGIN
+    ID_OBJECTS_ALLOBJECTS   "Show all objects in the system\nAll Objects"
+    ID_VIEW_PAUSE           "Pause or resume operation\nPause/Resume"
+    ID_OBJECTS_OBJECTMANAGER "Show object manager namespace\nObject Manager"
+    ID_OBJECTS_ALLOBJECTTYPES "Show all object types\nObject Types"
+    ID_HANDLES_ALLHANDLES   "Show all user mode handles in the system\nAll Handles"
+END
+
+STRINGTABLE
+BEGIN
+    ID_SYSTEM_PROCESSES     "View all processes\nProcesses"
+    ID_SYSTEM_THREADS       "View all threads\nThreads"
+END
+
+STRINGTABLE
+BEGIN
+    ID_HANDLES_SHOWHANDLEINPROCESS 
+                            "Show all handles in a selected process\nHandles in Process"
+END
+
+STRINGTABLE
+BEGIN
+    1280                    "Refresh the Windows tree\nRefresh Tree"
+    1281                    "Toggle windows with titles\nWindows with Titles"
+    1282                    "Toggle visible windows only\nVisible Windows"
+END
+
+STRINGTABLE
+BEGIN
+    ID_GUI_ALLWINDOWSINDEFAULTDESKTOP 
+                            "View all top-level windows on the default desktop\nWindows"
+    ID_SYSTEM_SERVICES      "View all services\nServices"
+    ID_SYSTEM_DEVICES       "View all devices\nDevices"
+    ID_SERVICE_START        "Start the service\nStart Service"
+    ID_SERVICE_STOP         "Stop the service\nStop Service"
+    ID_SERVICE_PAUSE        "Pause the service\nPause Service"
+    ID_SERVICE_CONTINUE     "Resume the service\nResume Service"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_SECURITY        "Show security properties\nSecurity Properties"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
