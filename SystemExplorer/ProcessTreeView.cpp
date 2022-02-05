@@ -21,7 +21,7 @@ CString CProcessTreeView::GetName(int row) {
 		L"I/O Read Bytes", L"I/O Write Bytes", L"I/O Other Bytes",
 		L"I/O Reads", L"I/O Writes", L"I/O Others",
 		L"GDI Objects", L"User Objects", L"Peak GDI Objects", L"Peak User Objects", L"Integrity Level",
-		L"Elevated?", L"Virtualization", L"Window Title", L"Platform", L"Description", L"Company",
+		L"Elevated?", L"Virtualization", L"Window Title", L"Platform", L"Description", L"Company", L"DPI Awareness",
 	};
 	if (row >= _countof(names))
 		return L"";
@@ -143,7 +143,7 @@ void CProcessTreeView::DoRefresh() {
 
 		if(indent > currentIndent) {
 			ATLASSERT(indent == currentIndent + 1);
-			node = m_Tree.InsertItem(text, icon, icon, indent == 0 ? TVI_ROOT : node.m_hTreeItem, TVI_LAST);
+			node = m_Tree.InsertItem(text, icon, icon, indent == 0 ? TVI_ROOT : node.m_hTreeItem, TVI_SORT);
 			node.SetData(p->Id);
 			currentIndent = indent;
 		}
@@ -152,7 +152,7 @@ void CProcessTreeView::DoRefresh() {
 				node = node.GetParent();
 				currentIndent--;
 			}
-			node = m_Tree.InsertItem(text, icon, icon, indent == 0 ? TVI_ROOT : node.GetParent().m_hTreeItem, TVI_LAST);
+			node = m_Tree.InsertItem(text, icon, icon, indent == 0 ? TVI_ROOT : node.GetParent().m_hTreeItem, TVI_SORT);
 			node.SetData(p->Id);
 		}
 		else {

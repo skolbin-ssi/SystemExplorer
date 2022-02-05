@@ -167,6 +167,8 @@ BEGIN
         MENUITEM "&Kernel Modules",             ID_SYSTEM_KERNELMODULES
         MENUITEM "&COM",                        ID_SYSTEM_COM
         MENUITEM "&Logon Sessions",             ID_SYSTEM_LOGONSESSIONS
+        MENUITEM "Sc&heduled Tasks",            ID_SYSTEM_SCHEDULEDTASKS
+        MENUITEM "&WMI",                        ID_SYSTEM_WMI
         MENUITEM "Information",                 ID_SYSTEM_INFORMATION
         MENUITEM SEPARATOR
         MENUITEM "&Install Service/Driver...",  ID_SYSTEM_INSTALLSERVICE
@@ -390,7 +392,7 @@ END
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDR_MAINFRAME           ICON                    "res\\ObjectExplorer.ico"
+IDR_MAINFRAME           ICON                    "res\\SysExp.ico"
 
 IDI_JOB                 ICON                    "res\\briefcase.ico"
 
@@ -1120,9 +1122,11 @@ END
 //
 // BIN
 //
-
+#ifdef _DEBUG
+IDR_DRIVER              BIN                     "..\\x64\\Debug\\KObjExp.sys"
+#else
 IDR_DRIVER              BIN                     "..\\x64\\Release\\KObjExp.sys"
-
+#endif
 
 /////////////////////////////////////////////////////////////////////////////
 //

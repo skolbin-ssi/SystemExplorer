@@ -2,10 +2,10 @@
 // Microsoft Visual C++ generated include file.
 // Used by SystemExplorer.rc
 //
-#define IDD_ABOUTBOX                    100
-#define IDD_SEARCHBAR                   103
-#define IDD_PROCESS_PROPERTIES          107
 #define IDR_MAINFRAME                   128
+#define IDD_ABOUTBOX                    200
+#define IDD_SEARCHBAR                   153
+#define IDD_PROCESS_PROPERTIES          157
 #define IDS_TITLE                       129
 #define IDR_DRIVER                      202
 #define IDI_JOB                         203
@@ -305,13 +305,16 @@
 #define ID_PROCESS_KILLBYNAME           32899
 #define ID_SYSTEM_PROCESSTREE           32900
 #define ID_SERVICE_PROCESSPROPERTIES    32901
+#define ID_SYSTEM_SCHEDULEDTASKS        32902
+#define ID_SYSTEM_WMINAMESPACE          32903
+#define ID_SYSTEM_WMI                   32904
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        332
-#define _APS_NEXT_COMMAND_VALUE         32902
+#define _APS_NEXT_COMMAND_VALUE         32905
 #define _APS_NEXT_CONTROL_VALUE         1069
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
